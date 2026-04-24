@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export default function Home() {
+    const navigate = useNavigate();
+const token = localStorage.getItem("token");
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white">
       
@@ -15,12 +18,12 @@ export default function Home() {
         </p>
 
         <div className="flex gap-4">
-          <Link
-            to="/login"
-            className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition"
-          >
-            Get Started
-          </Link>
+<Link
+  to={token ? "/task" : "/login"}
+  className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition"
+>
+  Get Started
+</Link>
 
           <Link
             to="/signup"
